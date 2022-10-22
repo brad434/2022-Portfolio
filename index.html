@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bradley Chery</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/0927c82d17.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">  
+      (function(){
+        emailjs.init("TIezwWFhXvE463I1o"); 
+      })();
+    </script> <!-- This script is from emailjs.com then/docs/SDK/Installation/Copy the Browser script -->
+  </head>
+  <body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <nav>
+        <figure>
+          <img id="personal-logo" src="./assets/1favicon.ico" alt="" />
+        </figure>
+        <ul class="nav__link--list">
+          <li class="nav__link">
+            <a
+              href="#about"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >About</a>
+          </li>
+          <li class="nav__link">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Projects</a>
+          </li>
+          <li class="nav__link" onclick="toggleModal()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              >Contact</a>
+          </li>
+          <li class="nav__link click" onclick="toggleContrast()">
+            <a
+              href="#"
+              class="nav__link--anchor link__hover-effect link__hover--black"
+              ><i class="fa-solid fa-circle-half-stroke"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+
+      <header class="header" id="about">
+        <div class="header__content">
+          <h1 class="title">Hello</h1>
+          <h1 class="title blue">I'm Bradley Chery.</h1>
+          <p class="header__paragraph">
+            I am a <b class="blue">Software Engineer</b> with a strong passion
+            for frontend development using HTML5, CSS3, JavaScript and REACT.
+            <br />
+            Here's a bit more <b class="blue click" onclick="toggleModal()">about me</b>.
+          </p>
+          <div class="social__list">
+            <a
+              href="https://www.linkedin.com/in/bradley618/"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/brad434"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a
+              href="./assets/Bradley Tech Resume 8.3.pdf"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-solid fa-file-pdf"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+      <a href="#">
+        <button class="mail__btn click" onclick="toggleModal()">
+          <i class="fa-solid fa-envelope"></i>
+        </button>
+      </a>
+
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon click"></div>
+      </a>
+      <div class="modal">
+        <div class="modal__half modal__about">
+            <h3 class="modal__title modal__title--about">Here's a bit about me.</h3>
+            <h4 class="modal__sub-title modal__sub-title--about">Frontend Developer</h4>
+            <p class="modal__para">Lorem ipsum dolor sit <b class="blue">amet consectetur adipisicing</b> elit. Debitis quia cupiditate eos reiciendis excepturi asperiores.
+                <br>
+                Lorem ipsum dolor sit amet <b class="blue">onsectetur adipisicing</b> elit. Distinctio vitae animi delectus commodi mollitia consequuntur quaerat eligendi fuga aut optio.
+            </p>
+            <div class="modal__languages">
+                <figure class="modal__language">
+                    <img class="modal__language--img" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+                    <span class="language__name">HTML5</span>
+                </figure>
+                <figure class="modal__language">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+                    <span class="language__name">CSS3</span>
+                </figure>
+                <figure class="modal__language">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+                    <span class="language__name">JAVASCRIPT</span>
+                </figure>
+                <figure class="modal__language">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+                    <span class="language__name">REACT</span>
+                </figure>
+            </div>
+        </div>
+
+        <div class="modal__half modal__contact">
+            <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+            <h3 class="modal__title modal__title--contact">Let's have a chat</h3>
+            <h4 class="modal__sub-title modal__sub-title--contact">I am open to speak with.</h4>
+            <form id="contact__form" onsubmit="contact(event)">
+                <div class="form__item">
+                    <label class="form__item--label">Name</label>
+                    <input class="input" name="from_name" type="text" required />
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Email</label>
+                    <input class="input" name="user_email" type="email" required />
+                </div>
+                <div class="form__item">
+                    <label class="form__item--label">Message</label>
+                    <textarea class="input" name="message" type="text" ></textarea>
+                </div>
+                <button id="contact__submit" class="form__submit">Send it my way!</button>
+            </form>
+            <div class="modal__overlay modal__overlay--loading">
+                <i class="fas fa-spinner"></i>
+            </div>
+            <div class="modal__overlay modal__overlay--success">
+                Thanks for  the request! Looking forward to speaking with you soon!
+            </div>
+        </div>
+      </div>
+      <img src="./assets/circle.svg" class="shape shape--0">
+      <img src="./assets/squiggly.svg" class="shape shape--1">
+      <img src="./assets/semi circle.svg" class="shape shape--2">
+      <img src="./assets/circle.svg" class="shape shape--3">
+      <img src="./assets/squiggly.svg" class="shape shape--4">
+      <img src="./assets/squiggly.svg" class="shape shape--5">
+      <img src="./assets/semi circle.svg" class="shape shape--6">
+      <img src="./assets/semi circle.svg" class="shape shape--7">
+      <img src="./assets/circle.svg" class="shape shape--8">
+    </section>
+    
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my <span class="blue">projects</span>
+          </h1>
+          <ul class="project__list">
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/EcommerceCapture.PNG"
+                  class="project__img"
+                  alt=""
+                  srcset=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__desc">
+                  <h3 class="project__desc--title">E-Commerce Web Page</h3>
+                  <h4 class="project__desc--sub-title">
+                    HTML, CSS, JAVASCRIPT
+                  </h4>
+                  <p class="project__desc--paragraph">
+                    A website that allows people to buy and sell physical goods, services, and digital products over the internet rather than at a brick-and-mortar location. Through an e-commerce website, a business can process orders, accept payments, manage shipping and logistics, and provide customer service.
+                  </p>
+                  <div class="project__desc--links">
+                    <a href="https://brad434.github.io/FrontEnd-E-commerce/" class="project__desc--link" target="_blank">
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <!-- <a href="https://www.linkedin.com/in/bradley618/" class="project__desc--link">
+                      <i class="fa-brands fa-linkedin"></i>
+                    </a> -->
+                  </div>
+                </div>
+              </div>
+            </li>
+            
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/CourseWebsiteCapture.PNG"
+                  class="project__img"
+                  alt=""
+                  srcset=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__desc">
+                  <h3 class="project__desc--title">Basic Course Website</h3>
+                  <h4 class="project__desc--sub-title">
+                    HTML, CSS, BOOTSTRAP, JAVASCRIPT
+                  </h4>
+                  <p class="project__desc--paragraph">
+                    This basic course webpage was designed using HTML, CSS, BOOTSTRAP and JAVASCRIPT.It contains a basic template for any educational company who would want to display their educational services on the internet. This template contains a form modal, an alert section, FAQs, a placement for facility information and a contact us info section. 
+                  </p>
+                  
+                  <div class="project__desc--links">
+                    <a href="https://brad434.github.io/Basic_Course_Website/" class="project__desc--link" target="_blank">
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            
+            <li class="project">
+              <div class="project__wrapper">
+                <img
+                  src="./assets/BookListCapture.PNG"
+                  class="project__img"
+                  alt=""
+                  srcset=""
+                />
+                <div class="project__wrapper--bg"></div>
+                <div class="project__desc">
+                  <h3 class="project__desc--title">BookList App</h3>
+                  <h4 class="project__desc--sub-title">
+                    HTML, CSS, JAVASCRIPT
+                  </h4>
+                  <p class="project__desc--paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Magnam non iure illum atque facere maiores nemo neque fugiat
+                    molestiae veniam error corporis soluta est recusandae aut,
+                    numquam dolore tempora. Cupiditate!
+                  </p>
+                  <div class="project__desc--links">
+                    <a href="https://brad434.github.io/BookList_JS/" class="project__desc--link" target="_blank"
+                    \>
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row footer__row">
+          <figure>
+            <img class="footer__logo--img" src="./assets/logo.svg" alt="" />
+          </figure>
+          <div class="footer__social--list">
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              Github 
+            </a>
+            <a
+              href="#"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="#" 
+              onclick="toggleModal()"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              Contact
+            </a>
+            <a
+              href="./assets/2022_RESUME.pdf" target="_blank"
+              class="footer__social--link link__hover-effect link__hover-effect--white"
+            >
+              Resume
+            </a>
+          </div>
+          <div class="footer__copyright">
+            Copyright &copy; 2022 Bradley Chery
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
